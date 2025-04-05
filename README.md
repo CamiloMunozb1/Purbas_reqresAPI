@@ -20,19 +20,20 @@ Este proyecto en Python es una prueba práctica de cómo consumir una API REST u
 ## 📦 Instalación
 
 1. Clona este repositorio o descarga el archivo `.py`.
-2. Asegúrate de tener `requests` instalado:
-
-```bash
-pip install requests
-
-
+2. Asegúrate de tener `requests` instalado.
 3. Ejecuta el archivo.
 
-    python archivo.py
-
-
-## Notas
+##  Notas
 
 -La API de Reqres es solo para pruebas, por lo tanto el registro real solo funciona con algunos emails predefinidos.
 -Este script se enfoca en la lógica de validación y consumo de endpoints separados para usuario y autenticación.
 -La contraseña debe tener al menos 6 caracteres y puede incluir letras, números y símbolos especiales (@#$%^&+=).
+
+## Autor
+
+Juan Camio Muñoz-Este proyecto fue desarrollado con fines educativos para reforzar el uso de APIs en Python.
+
+## Licencia
+
+Este codigo esta bajo una licencia MIT
+
