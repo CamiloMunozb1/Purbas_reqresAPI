@@ -1,5 +1,5 @@
 import requests  # Para hacer peticiones HTTP a la API
-import re        # (Podrías usarlo para validar el email si quieres más adelante)
+import re        # Valida el email y la contraseña
 
 class PruebaReqres:
     def __init__(self):
@@ -8,12 +8,25 @@ class PruebaReqres:
         self.last_name = str(input("Ingresa tus apellidos: ")).strip()
         self.job = str(input("Ingresa tu rol dentro de la empresa: ")).strip()
         self.email = str(input("Ingresa un correo electronico: ")).strip()
-        self.password = str(input("Ingresa una contraseña: ")).strip()
+        self.password = str(input("Ingresa una contraseña (6 caracteres): ")).strip()
 
-        # Validación para asegurar que ningún campo esté en blanco
+        # Valida tanto las contraseñas y el email con expresiones regulares.
+        verificador_email = r"[a-zA-Z-0-9]+@[a-zA-Z]+\.[a-z-.]+$"
+        verificador_password = r"^[a-zA-Z0-9@#$%^&+=]{6,}$"
+
+        # Verifica que los campos no esten vacios.
         if not all([self.first_name, self.last_name, self.job, self.email, self.password]):
             print("No se pueden ingresar campos en blanco.")
             return
+        # Verifica que el email sea correcto.
+        elif not re.fullmatch(verificador_email, self.email):
+            print("Email no aceptado, ingresa uno valido.")
+            return
+        # Verifica que la contraseña tenga el campo correcto.
+        elif not re.fullmatch(verificador_password,self.password):
+            print("Contraseña no compatible, volver a intentar con los caracteres validos (6).")
+            return
+
 
         # URLs de la API de Reqres
         self.url_usuario = "https://reqres.in/api/users"     # Para simular creación de usuario
